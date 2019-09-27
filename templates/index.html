@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+{% block content %}
+
+<div class = "container">
+  <div class = "jumbotron text-center">
+    <h2> Food safety inspection </h2>
+  </div>
+    </div>
+
+<div class = "contianer">
+  <form action = "{{url_for('safeTdigest')}}" method = POST id = "myform">
+
+    <p> Star <input  type = "text" name = "star" /></p>
+    <p> Review count <input type = "text" name = "count" /></p>
+      <p> Tips <input type = "text" name = "frequency" /></p>
+    <p> Price <input type = "text" name = "price" /></p>
+  <input type = "submit" name = "" value = "Submit" class = "btn btn-primary">
+  <input type = "reset" name = "" value = "Clear" class = "btn btn-outline-primary">
+
+  <a href = "{{url_for('index')}}" type = "button" class = "btn btn-danger">Reset</a>
+</form>
+</div>
+
+<div class = "container">
+  <div class = "card">
+
+      <hr/>
+      <div class = "card-body">
+
+      <p> Food Inspection</p>
+      <p> {{ grade_OP}}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
