@@ -56,11 +56,9 @@ def safeTdigest():
 
         # check if the text_clean column has any of the negative words
 
-
         df['frequency'] = df['frequency'].apply(word_finder)
 
         # Find the number of negative words based on the length of each row from 'negative_word'
-
 
         df['frequency'] = df['frequency'].apply(freq_finder)
 
@@ -72,7 +70,7 @@ def safeTdigest():
         else:
             grade = "Bad"
             #outcome_prob = grade_outcome_prob
-        #grade = 1 + 2 * int(df.loc[0,"star"]) + 10 * int(df.loc[0,"count"])
+
 
         return render_template("index.html", grade_OP = grade)
 
