@@ -10,10 +10,11 @@
 <div class = "contianer">
   <form action = "{{url_for('safeTdigest')}}" method = POST id = "myform">
 
-    <p> Star <input  type = "text" name = "star" /></p>
-    <p> Review count <input type = "text" name = "count" /></p>
+    <p> Aggregate grade <input type = "text" name = "aggregate_grade" /></p>
+    <p> Review count <input  type = "text" name = "review_count" /></p>
+    <p> Stars <input type = "text" name = "stars" /></p>
       <p> Tips <input type = "text" name = "frequency" /></p>
-    <p> Price <input type = "text" name = "price" /></p>
+
   <input type = "submit" name = "" value = "Submit" class = "btn btn-primary">
   <input type = "reset" name = "" value = "Clear" class = "btn btn-outline-primary">
 
@@ -27,8 +28,8 @@
       <hr/>
       <div class = "card-body">
 
-      <p> Food Inspection</p>
-      <p> {{ grade_OP}}
+      <p> Inspection grade: {{ grade_OP}}</p>
+
     </div>
   </div>
 </div>
