@@ -5,6 +5,7 @@ import pickle
 import pandas as pd
 from sklearn import model_selection
 from sklearn.linear_model import LogisticRegression
+import numpy as np
 
 import nltk
 nltk.download('stopwords')
@@ -105,8 +106,8 @@ def safeTdigest():
     if request.method == 'POST':
         result = request.form
         # Loading model from the training set
-        with open('model_random_forest.pickle', 'rb') as handle:
-            model_log = pickle.load(handle)
+        with open('model_logistic.pickle', 'rb') as handle:
+            model_logistic = pickle.load(handle)
         # Change the user input data to a dataframe
         df = pd.DataFrame(result, index=[0])
 
@@ -124,14 +125,15 @@ def safeTdigest():
         df['frequency'] = df['frequency'].apply(freq_finder)
 
         X_test = df
-        grade_outcome = model_log.predict(X_test) # Good: 0, Bad: 1
+        #X_test = [X_test.values]
+        grade_outcome = model_logistic.predict(X_test) # Good: 0, Bad: 1
         if grade_outcome == 0:
             grade = "Good"
             #outcome_prob = 1 - grade_outcome_prob
         else:
             grade = "Bad"
             #outcome_prob = grade_outcome_prob
-
+        #grade = df.loc[0,'neg_freq']
 
         return render_template("index.html", grade_OP = grade)
 
