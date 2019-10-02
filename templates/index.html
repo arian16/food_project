@@ -3,18 +3,44 @@
 
 <div class = "container">
   <div class = "jumbotron text-center">
-    <h2> Food safety inspection </h2>
+    <div class="text-primary">
+    <h2> Prediction of Health Violations in Restaurants</h2>
+
+</div>
   </div>
     </div>
 
-<div class = "contianer">
+<div class = "text-center">
   <form action = "{{url_for('safeTdigest')}}" method = POST id = "myform">
 
-    <p> Aggregate grade <input type = "text" name = "aggregate_grade" /></p>
+    <p> Aggregate grade prior to 2017 (number of years having > 10 violations per year) <select name = 'aggregate'>
+      <option value=0> 0 </option>
+      <option value=1> 1 </option>
+      <option value=2> 2 </option>
+      <option value=3> 3 </option>
+      <option value=4> 4 </option>
+    </select></p>
     <p> Review count <input  type = "text" name = "review_count" /></p>
-    <p> Stars <input type = "text" name = "stars" /></p>
-      <p> Tips <input type = "text" name = "frequency" /></p>
-
+    <p> Stars (1-5) <input type = "text" name = "stars" /></p>
+      <p> Tips (key information rather than full review)
+      <input list="frequency" name = "frequency">
+        <datalist id="frequency">
+          <option value="This place is awesome">
+          <option value="Very gross and dirty">
+          <option value="Great wine">
+          <option value="I felt sick and vomitted!">
+          <option value="Best food ever but the toilet was smelly!">
+        </datalist>
+</p>
+      <p> Number of tips <input type = "text" name = "tips_count" /></p>
+      <p> Price ($ economical, $$-$$$$ expensive) <select name = 'price'>
+        <option value=0>  Economical</option>
+        <option value=1> Expensive</option>
+      </select> </p>
+      <p> Fast food <select name = 'fast_food'>
+        <option value=1> Yes</option>
+        <option value=0> No</option>
+      </select> </p>
   <input type = "submit" name = "" value = "Submit" class = "btn btn-primary">
   <input type = "reset" name = "" value = "Clear" class = "btn btn-outline-primary">
 
@@ -22,13 +48,15 @@
 </form>
 </div>
 
-<div class = "container">
-  <div class = "card">
+<div class = "text-center">
+  <div class = "jumbotron text-center">
 
       <hr/>
-      <div class = "card-body">
+      <div class = "text-danger">
 
       <p> Inspection grade: {{ grade_OP}}</p>
+      <p> Good is <10 violations </p>
+      <p> Bad is >10 violations </p>
 
     </div>
   </div>

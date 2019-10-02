@@ -106,7 +106,7 @@ def safeTdigest():
     if request.method == 'POST':
         result = request.form
         # Loading model from the training set
-        with open('model_logistic.pickle', 'rb') as handle:
+        with open('model_log_3.pickle', 'rb') as handle:
             model_logistic = pickle.load(handle)
         # Change the user input data to a dataframe
         df = pd.DataFrame(result, index=[0])
