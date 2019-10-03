@@ -4,8 +4,8 @@
 <div class = "container">
   <div class = "jumbotron text-center">
     <div class="text-primary">
-    <h2> Prediction of Health Violations in Restaurants</h2>
 
+    <h2> Prediction of Health Violations in Restaurants</h2>
 </div>
   </div>
     </div>
@@ -42,7 +42,7 @@
         <option value=0> No</option>
       </select> </p>
   <input type = "submit" name = "" value = "Submit" class = "btn btn-primary">
-  <input type = "reset" name = "" value = "Clear" class = "btn btn-outline-primary">
+  <input type = "reset" name = "" value = "Clear" class = "btn btn-success">
 
   <a href = "{{url_for('index')}}" type = "button" class = "btn btn-danger">Reset</a>
 </form>
@@ -55,8 +55,6 @@
       <div class = "text-danger">
 
       <p> Inspection grade: {{ grade_OP}}</p>
-      <p> Good is <10 violations </p>
-      <p> Bad is >10 violations </p>
 
     </div>
   </div>

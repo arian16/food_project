@@ -128,12 +128,11 @@ def safeTdigest():
         #X_test = [X_test.values]
         grade_outcome = model_logistic.predict(X_test) # Good: 0, Bad: 1
         if grade_outcome == 0:
-            grade = "Good"
+            grade = "Good (<10 violations)"
             #outcome_prob = 1 - grade_outcome_prob
         else:
-            grade = "Bad"
+            grade = "Bad (>10 violations)"
             #outcome_prob = grade_outcome_prob
-        #grade = df.loc[0,'neg_freq']
 
         return render_template("index.html", grade_OP = grade)
 
